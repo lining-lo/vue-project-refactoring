@@ -1,9 +1,12 @@
 <template>
-    <div>左侧菜单</div>
-    <div>头部</div>
-    <div>
-        这个部分是变化的
-        <router-view></router-view>
+    <div class="common-layout">
+        <el-container>
+            <el-aside width="200px">Aside</el-aside>
+            <el-container>
+                <el-header>Header</el-header>
+                <el-main><router-view></router-view></el-main>
+            </el-container>
+        </el-container>
     </div>
 </template>
 
