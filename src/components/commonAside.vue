@@ -1,6 +1,7 @@
 <template>
-    <el-aside width="200px">
-        <el-menu background-color="#545c64" text-color="#fff">
+    <el-aside :width="store.state.isCollapse ? 'auto' : '200px'">
+        <el-menu :collapse="store.state.isCollapse" background-color="#545c64" text-color="#fff"
+            :collapse-transition="false">
             <el-menu-item v-for="item in noChildren" :key="item.path" :index="item.path">
                 <component class="icons" :is="item.icon"></component>
                 <span>{{ item.label }}</span>
@@ -20,6 +21,10 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useStore } from 'vuex';
+
+//获取仓库
+const store = useStore()
 //左侧菜单数据
 const list = ref([
     {
@@ -77,6 +82,7 @@ const hasChildren = computed(() => list.value.filter(item => item.children))
 <style lang='less' scoped>
 .el-menu {
     border-right: 0;
+
     .icons {
         width: 18px;
         height: 18px;

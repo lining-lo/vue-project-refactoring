@@ -2,7 +2,7 @@
   <el-header>
     <div class="l-content">
       <!-- 图标的展示 -->
-      <el-button size="small">
+      <el-button size="small" @click="handleCollapse">
         <el-icon :size="20">
           <Menu />
         </el-icon>
@@ -31,7 +31,16 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { useStore } from 'vuex';
 
+//获取仓库
+const store = useStore()
+
+//点击折叠或展开左侧菜单的方法
+const handleCollapse = ()=>{
+  //调用仓库中的方法
+  store.commit('updateCollapse')
+}
 </script>
 
 <style lang='less' scoped>

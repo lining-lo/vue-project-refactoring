@@ -9,6 +9,8 @@ import router from './router'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 //引入reset.less
 import './assets/less/index.less'
+//引入vuex
+import store from './store/index.js'
 
 const app = createApp(App)
 
@@ -20,5 +22,6 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 //element-plus全局引入
 app.use(ElementPlus)
 app.use(router)
+app.use(store)
 
 app.mount('#app')
