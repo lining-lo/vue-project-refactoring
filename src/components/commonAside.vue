@@ -69,8 +69,6 @@ const list = ref([
 const noChildren = computed(() => list.value.filter(item => !item.children))
 //有子菜单的数据
 const hasChildren = computed(() => list.value.filter(item => item.children))
-console.log('noChildre', noChildren);
-console.log('hasChildren', hasChildren);
 
 
 
@@ -78,6 +76,7 @@ console.log('hasChildren', hasChildren);
 
 <style lang='less' scoped>
 .el-menu {
+    border-right: 0;
     .icons {
         width: 18px;
         height: 18px;

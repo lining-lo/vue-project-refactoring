@@ -7,6 +7,8 @@ import 'element-plus/dist/index.css'
 import router from './router'
 //引入icon图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+//引入reset.less
+import './assets/less/index.less'
 
 const app = createApp(App)
 

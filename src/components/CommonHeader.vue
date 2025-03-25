@@ -7,6 +7,7 @@
           <Menu />
         </el-icon>
       </el-button>
+      <h3>首页</h3>
     </div>
     <div class="r-content">
       <!-- 下拉框 -->
@@ -34,16 +35,31 @@ import { ref, reactive } from 'vue'
 </script>
 
 <style lang='less' scoped>
-header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .r-content{
-  .user{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+  background-color: #333;
+
+  .l-content {
+    display: flex;
+    align-items: center;
+
+    .el-button {
+      margin-right: 20px;
+    }
+
+    h3 {
+      color: #fff;
+    }
   }
-}
+
+  .r-content {
+    .user {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
 }
 </style>

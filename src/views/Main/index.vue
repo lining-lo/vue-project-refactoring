@@ -5,7 +5,7 @@
                 <CommonAside />
             </el-aside>
             <el-container>
-                <el-header>
+                <el-header style="padding: 0;">
                     <CommonHeader />
                 </el-header>
                 <el-main><router-view></router-view></el-main>
@@ -27,4 +27,16 @@ defineComponent({
 })
 
 </script>
-<style lang='scss' scoped></style>
+
+<style lang='less' scoped>
+.common-layout{
+    height: 100%;
+    & > .el-container{
+        height: 100%;
+        & > .el-aside{
+            height: 100%;
+            background: #545c64;
+        }
+    }
+}
+</style>
