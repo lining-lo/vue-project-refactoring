@@ -1,5 +1,5 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import CommonHeader from './components/CommonHeader.vue'
 </script>
 
 <template>
