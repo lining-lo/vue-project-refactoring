@@ -11,6 +11,8 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import './assets/less/index.less'
 //引入vuex
 import store from './store/index.js'
+//引入mockjs
+import './api/mock.js'
 
 const app = createApp(App)
 

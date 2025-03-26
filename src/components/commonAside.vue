@@ -82,9 +82,8 @@ const noChildren = computed(() => list.value.filter(item => !item.children))
 //有子菜单的数据
 const hasChildren = computed(() => list.value.filter(item => item.children))
 
-//点击菜单实现跳转路由的方法
+//点击菜单实现路由跳转的方法
 const clickMenu = (item)=>{
-    console.log(item);
     router.push(item.path)
 }
 
