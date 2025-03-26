@@ -2,7 +2,8 @@
     <el-aside :width="store.state.isCollapse ? 'auto' : '200px'">
         <el-menu :collapse="store.state.isCollapse" background-color="#545c64" text-color="#fff"
             :collapse-transition="false">
-            <el-menu-item v-for="item in noChildren" :key="item.path" :index="item.path">
+            <h3>{{ store.state.isCollapse ? '后台' : '后台管理' }}</h3>
+            <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :key="item.path" :index="item.path">
                 <component class="icons" :is="item.icon"></component>
                 <span>{{ item.label }}</span>
             </el-menu-item>
@@ -11,7 +12,7 @@
                     <component class="icons" :is="item.icon"></component>
                     <span>{{ item.label }}</span>
                 </template>
-                <el-menu-item-group v-for="subItem in item.children" :key="subItem.path">
+                <el-menu-item-group @click="clickMenu(subItem)" v-for="subItem in item.children" :key="subItem.path">
                     <el-menu-item :index="subItem.path">{{ subItem.label }}</el-menu-item>
                 </el-menu-item-group>
             </el-sub-menu>
@@ -21,10 +22,15 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+//引入仓库
 import { useStore } from 'vuex';
+//引入路由
+import { useRouter } from 'vue-router';
 
 //获取仓库
 const store = useStore()
+//获取路由
+const router = useRouter()
 //左侧菜单数据
 const list = ref([
     {
@@ -70,11 +76,17 @@ const list = ref([
         ]
     }
 ])
+
 //没有子菜单的数据
 const noChildren = computed(() => list.value.filter(item => !item.children))
 //有子菜单的数据
 const hasChildren = computed(() => list.value.filter(item => item.children))
 
+//点击菜单实现跳转路由的方法
+const clickMenu = (item)=>{
+    console.log(item);
+    router.push(item.path)
+}
 
 
 </script>
@@ -82,6 +94,14 @@ const hasChildren = computed(() => list.value.filter(item => item.children))
 <style lang='less' scoped>
 .el-menu {
     border-right: 0;
+
+    h3 {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 48px;
+        text-align: center;
+    }
 
     .icons {
         width: 18px;
